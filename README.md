@@ -99,9 +99,3 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 - [OpenCV](https://opencv.org/) pela biblioteca de visão computacional
 - [Ultralytics](https://github.com/ultralytics/ultralytics) pelo YOLOv8
 - Todos os contribuidores que ajudaram no projeto
-
-## 📫 Contato
-
-Seu Nome - [@seu_twitter](https://twitter.com/seu_twitter) - email@exemplo.com
-
-Link do Projeto: [https://github.com/SouzaEu/visionmoto](https://github.com/SouzaEu/visionmoto)
