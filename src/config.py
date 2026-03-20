@@ -85,7 +85,7 @@ class Config:
             import logging
             logger = logging.getLogger(__name__)
             for error in errors:
-                logger.error(f"❌ ERRO DE CONFIGURAÇÃO: {error}")
+                logger.error(f"ERRO DE CONFIGURAÇÃO: {error}")
             return False
         
         return True
@@ -95,14 +95,14 @@ class Config:
         """Exibe configurações (sem dados sensíveis)"""
         import logging
         logger = logging.getLogger(__name__)
-        logger.info("🔧 Configurações do VisionMoto:")
+        logger.info("Configurações do VisionMoto:")
         logger.info(f"  • API: {cls.API_HOST}:{cls.API_PORT}")
         logger.info(f"  • Debug: {cls.DEBUG}")
         logger.info(f"  • Database: {cls.DATABASE_PATH}")
         logger.info(f"  • Log Level: {cls.LOG_LEVEL}")
         logger.info(f"  • YOLO Model: {cls.YOLO_MODEL_PATH}")
         logger.info(f"  • Rate Limit: {cls.RATE_LIMIT_PER_MINUTE}/min")
-        logger.info(f"  • Secret Key: {'✓ Configurada' if cls.SECRET_KEY else '✗ Não configurada'}")
+        logger.info(f"  • Secret Key: {'Configurada' if cls.SECRET_KEY else 'Não configurada'}")
 
 
 class DevelopmentConfig(Config):

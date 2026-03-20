@@ -45,19 +45,19 @@ class MQTTIoTClient:
         """Callback de conexão MQTT"""
         if rc == 0:
             self.connected = True
-            print("✅ Conectado ao broker MQTT")
+            print("Conectado ao broker MQTT")
 
             # Subscrever aos tópicos
             for topic_name, topic in self.topics.items():
                 client.subscribe(topic)
-                print(f"📡 Subscrito ao tópico: {topic}")
+                print(f"Subscrito ao tópico: {topic}")
         else:
-            print(f"❌ Falha na conexão MQTT: {rc}")
+            print(f"Falha na conexão MQTT: {rc}")
 
     def _on_disconnect(self, client, userdata, rc):
         """Callback de desconexão MQTT"""
         self.connected = False
-        print("🔌 Desconectado do broker MQTT")
+        print("Desconectado do broker MQTT")
 
     def _on_message(self, client, userdata, msg):
         """Callback de mensagem recebida"""
@@ -66,7 +66,7 @@ class MQTTIoTClient:
             payload = json.loads(msg.payload.decode())
 
             print(
-                f"📨 MQTT Recebido [{topic}]: {payload.get('sensor_id', payload.get('actuator_id', 'unknown'))}"
+                f"MQTT Recebido [{topic}]: {payload.get('sensor_id', payload.get('actuator_id', 'unknown'))}"
             )
 
             # Processa mensagem baseado no tópico
@@ -78,7 +78,7 @@ class MQTTIoTClient:
                 self._process_alert(payload)
 
         except Exception as e:
-            print(f"❌ Erro ao processar mensagem MQTT: {e}")
+            print(f"Erro ao processar mensagem MQTT: {e}")
 
     def _process_sensor_data(self, data: Dict):
         """Processa dados de sensor via MQTT"""
@@ -86,10 +86,10 @@ class MQTTIoTClient:
             # Envia para API HTTP como backup/integração
             response = requests.post(f"{self.api_url}/iot/sensor", json=data, timeout=2)
             if response.status_code == 201:
-                print(f"✅ Sensor {data['sensor_id']}: Dados processados via MQTT+HTTP")
+                print(f"Sensor {data['sensor_id']}: Dados processados via MQTT+HTTP")
         except requests.exceptions.RequestException:
             print(
-                f"⚠️ Falha HTTP para sensor {data['sensor_id']}, dados via MQTT apenas"
+                f"Falha HTTP para sensor {data['sensor_id']}, dados via MQTT apenas"
             )
 
     def _process_actuator_data(self, data: Dict):
@@ -101,16 +101,16 @@ class MQTTIoTClient:
             )
             if response.status_code == 201:
                 print(
-                    f"✅ Atuador {data['actuator_id']}: Dados processados via MQTT+HTTP"
+                    f"Atuador {data['actuator_id']}: Dados processados via MQTT+HTTP"
                 )
         except requests.exceptions.RequestException:
             print(
-                f"⚠️ Falha HTTP para atuador {data['actuator_id']}, dados via MQTT apenas"
+                f"Falha HTTP para atuador {data['actuator_id']}, dados via MQTT apenas"
             )
 
     def _process_alert(self, data: Dict):
         """Processa alertas via MQTT"""
-        print(f"🚨 Alerta MQTT: {data.get('message', 'Alerta desconhecido')}")
+        print(f"Alerta MQTT: {data.get('message', 'Alerta desconhecido')}")
 
     def connect(self) -> bool:
         """Conecta ao broker MQTT"""
@@ -141,7 +141,7 @@ class MQTTIoTClient:
             topic = f"visionmoto/sensors/{sensor_id}/data"
             payload = json.dumps(data)
             self.client.publish(topic, payload)
-            print(f"📤 MQTT Enviado [{topic}]: {sensor_id}")
+            print(f"MQTT Enviado [{topic}]: {sensor_id}")
 
     def publish_actuator_data(self, actuator_id: str, data: Dict):
         """Publica dados de atuador via MQTT"""
@@ -149,7 +149,7 @@ class MQTTIoTClient:
             topic = f"visionmoto/actuators/{actuator_id}/data"
             payload = json.dumps(data)
             self.client.publish(topic, payload)
-            print(f"📤 MQTT Enviado [{topic}]: {actuator_id}")
+            print(f"MQTT Enviado [{topic}]: {actuator_id}")
 
     def publish_alert(self, alert_data: Dict):
         """Publica alerta via MQTT"""
@@ -157,7 +157,7 @@ class MQTTIoTClient:
             topic = "visionmoto/alerts"
             payload = json.dumps(alert_data)
             self.client.publish(topic, payload)
-            print(f"🚨 Alerta MQTT enviado: {alert_data.get('message', 'Alerta')}")
+            print(f"Alerta MQTT enviado: {alert_data.get('message', 'Alerta')}")
 
     def get_status(self) -> Dict:
         """Retorna status da conexão MQTT"""
@@ -174,7 +174,7 @@ def main():
     client = MQTTIoTClient()
 
     if client.connect():
-        print("✅ Cliente MQTT conectado com sucesso!")
+        print("Cliente MQTT conectado com sucesso")
 
         # Teste de publicação
         test_data = {
@@ -191,7 +191,7 @@ def main():
 
         client.disconnect()
     else:
-        print("❌ Falha ao conectar cliente MQTT")
+        print("Falha ao conectar cliente MQTT")
 
 
 if __name__ == "__main__":

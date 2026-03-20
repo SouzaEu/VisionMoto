@@ -152,10 +152,10 @@ class MotoService:
         descricao = moto.get("descricao_localizacao", "")
         
         instrucoes = f"Para encontrar a moto {placa}:\n"
-        instrucoes += f"📍 Endereço: {endereco}\n"
-        instrucoes += f"🏢 {setor} - {andar}º andar\n"
-        instrucoes += f"🅿️ Vaga: {vaga}\n"
-        instrucoes += f"ℹ️ {descricao}"
+        instrucoes += f"Endereço: {endereco}\n"
+        instrucoes += f"{setor} - {andar}º andar\n"
+        instrucoes += f"Vaga: {vaga}\n"
+        instrucoes += f"{descricao}"
         
         return instrucoes
     

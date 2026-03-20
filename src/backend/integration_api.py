@@ -82,7 +82,7 @@ class VisionMotoIntegrationAPI:
             # Apenas em desenvolvimento, usa chave fixa para não invalidar tokens
             secret_key = "dev-secret-key-change-in-production-12345678"
             logger.warning(
-                "⚠️  Using development SECRET_KEY. Set SECRET_KEY env var for production!"
+                "Using development SECRET_KEY. Set SECRET_KEY env var for production!"
             )
         
         self.app.config["SECRET_KEY"] = secret_key
@@ -1140,12 +1140,12 @@ class VisionMotoIntegrationAPI:
 
     def run(self, host="0.0.0.0", port=5001, debug=False):
         """Executa a API de integração"""
-        print(f"🚀 VisionMoto Integration API rodando em http://{host}:{port}")
-        print(f"📱 Mobile endpoints: http://{host}:{port}/api/mobile/*")
-        print(f"☕ Java endpoints: http://{host}:{port}/api/java/*")
-        print(f"🔷 .NET endpoints: http://{host}:{port}/api/dotnet/*")
-        print(f"🗄️  Database endpoints: http://{host}:{port}/api/database/*")
-        print(f"🌐 IoT endpoints: http://{host}:{port}/api/iot/*")
+        print(f"VisionMoto Integration API rodando em http://{host}:{port}")
+        print(f"Mobile endpoints: http://{host}:{port}/api/mobile/*")
+        print(f"Java endpoints: http://{host}:{port}/api/java/*")
+        print(f".NET endpoints: http://{host}:{port}/api/dotnet/*")
+        print(f"Database endpoints: http://{host}:{port}/api/database/*")
+        print(f"IoT endpoints: http://{host}:{port}/api/iot/*")
         self.app.run(host=host, port=port, debug=debug)
 
 

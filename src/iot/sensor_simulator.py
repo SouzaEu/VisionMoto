@@ -18,7 +18,7 @@ try:
     MQTT_AVAILABLE = True
 except ImportError:
     MQTT_AVAILABLE = False
-    print("⚠️ MQTT não disponível, usando apenas HTTP")
+    print("MQTT não disponível, usando apenas HTTP")
 
 
 class MotoSensor:
@@ -114,12 +114,12 @@ class IoTDeviceSimulator:
             try:
                 self.mqtt_client = MQTTIoTClient(api_url=api_url)
                 if self.mqtt_client.connect():
-                    print("✅ MQTT habilitado para IoT")
+                    print("MQTT habilitado para IoT")
                 else:
-                    print("🌐 Protocolo: HTTP")
+                    print("Protocolo: HTTP")
                     self.use_mqtt = False
             except Exception as e:
-                print("🌐 Protocolo: HTTP")
+                print("Protocolo: HTTP")
                 self.use_mqtt = False
 
         # Cria dispositivos simulados
@@ -167,12 +167,12 @@ class IoTDeviceSimulator:
             if response.status_code == 201:
                 protocol = "MQTT+HTTP" if self.use_mqtt else "HTTP"
                 print(
-                    f"📡 [{protocol}] Sensor {sensor.sensor_id}: Moto {'detectada' if data['is_active'] else 'não detectada'}"
+                    f"[{protocol}] Sensor {sensor.sensor_id}: Moto {'detectada' if data['is_active'] else 'não detectada'}"
                 )
         except requests.exceptions.RequestException:
             if self.use_mqtt:
                 print(
-                    f"📡 [MQTT] Sensor {sensor.sensor_id}: Dados enviados (HTTP falhou)"
+                    f"[MQTT] Sensor {sensor.sensor_id}: Dados enviados (HTTP falhou)"
                 )
             else:
                 pass  # Falha silenciosa
@@ -193,12 +193,12 @@ class IoTDeviceSimulator:
             if response.status_code == 201:
                 protocol = "MQTT+HTTP" if self.use_mqtt else "HTTP"
                 print(
-                    f"🔧 [{protocol}] Atuador {actuator.actuator_id}: {data['status']}"
+                    f"[{protocol}] Atuador {actuator.actuator_id}: {data['status']}"
                 )
         except requests.exceptions.RequestException:
             if self.use_mqtt:
                 print(
-                    f"🔧 [MQTT] Atuador {actuator.actuator_id}: Dados enviados (HTTP falhou)"
+                    f"[MQTT] Atuador {actuator.actuator_id}: Dados enviados (HTTP falhou)"
                 )
             else:
                 pass  # Falha silenciosa
@@ -217,10 +217,10 @@ class IoTDeviceSimulator:
 
     def start_simulation(self):
         """Inicia a simulação IoT"""
-        print("🚀 Iniciando simulação IoT...")
-        print(f"📊 {len(self.sensors)} sensores e {len(self.actuators)} atuadores")
+        print("Iniciando simulação IoT...")
+        print(f"{len(self.sensors)} sensores e {len(self.actuators)} atuadores")
         protocol = "MQTT+HTTP" if self.use_mqtt else "HTTP"
-        print(f"🌐 Protocolo: {protocol}")
+        print(f"Protocolo: {protocol}")
 
         self.running = True
 
@@ -240,11 +240,11 @@ class IoTDeviceSimulator:
             thread.start()
             self.threads.append(thread)
 
-        print("✅ Simulação IoT iniciada!")
+        print("Simulação IoT iniciada")
 
     def stop_simulation(self):
         """Para a simulação IoT"""
-        print("🛑 Parando simulação IoT...")
+        print("Parando simulação IoT...")
         self.running = False
 
         # Desconecta MQTT se conectado
@@ -255,7 +255,7 @@ class IoTDeviceSimulator:
         for thread in self.threads:
             thread.join(timeout=1)
 
-        print("✅ Simulação IoT parada!")
+        print("Simulação IoT parada")
 
     def get_device_status(self) -> Dict:
         """Retorna status de todos os dispositivos"""
@@ -294,7 +294,7 @@ def main():
         time.sleep(60)
 
     except KeyboardInterrupt:
-        print("\n⏹️ Interrompido pelo usuário")
+        print("\nInterrompido pelo usuário")
     finally:
         simulator.stop_simulation()
 

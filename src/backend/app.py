@@ -388,12 +388,12 @@ def main():
     port = int(os.environ.get("API_PORT", "5001"))
     debug = os.environ.get("FLASK_ENV", "development") == "development"
     
-    logger.info(f"🚀 VisionMoto Integration API starting on http://{host}:{port}")
-    logger.info(f"📱 Mobile endpoints: http://{host}:{port}/api/mobile/*")
-    logger.info(f"☕ Java endpoints: http://{host}:{port}/api/java/*")
-    logger.info(f"🔷 .NET endpoints: http://{host}:{port}/api/dotnet/*")
-    logger.info(f"🗄️  Database endpoints: http://{host}:{port}/api/database/*")
-    logger.info(f"🌐 IoT endpoints: http://{host}:{port}/api/iot/*")
+    logger.info(f"VisionMoto Integration API starting on http://{host}:{port}")
+    logger.info(f"Mobile endpoints: http://{host}:{port}/api/mobile/*")
+    logger.info(f"Java endpoints: http://{host}:{port}/api/java/*")
+    logger.info(f".NET endpoints: http://{host}:{port}/api/dotnet/*")
+    logger.info(f"Database endpoints: http://{host}:{port}/api/database/*")
+    logger.info(f"IoT endpoints: http://{host}:{port}/api/iot/*")
     
     app.run(host=host, port=port, debug=debug)
 

@@ -31,7 +31,7 @@ class VisionMotoDemo:
         
     def start_backend(self):
         """Inicia o backend Flask"""
-        print("🚀 Iniciando backend Flask...")
+        print("Iniciando backend Flask...")
         try:
             self.backend_process = subprocess.Popen([
                 sys.executable, '-m', 'src.backend.app'
@@ -42,45 +42,45 @@ class VisionMotoDemo:
             try:
                 response = requests.get("http://localhost:5000/metrics", timeout=2)
                 if response.status_code == 200:
-                    print("✅ Backend Flask iniciado com sucesso!")
+                    print("Backend Flask iniciado com sucesso")
                     return True
             except requests.exceptions.RequestException:
                 pass
                 
-            print("❌ Falha ao iniciar backend Flask")
+            print("Falha ao iniciar backend Flask")
             return False
             
         except Exception as e:
-            print(f"❌ Erro ao iniciar backend: {e}")
+            print(f"Erro ao iniciar backend: {e}")
             return False
     
     def stop_backend(self):
         """Para o backend Flask"""
         if self.backend_process:
-            print("🛑 Parando backend Flask...")
+            print("Parando backend Flask...")
             self.backend_process.terminate()
             self.backend_process.wait()
-            print("✅ Backend Flask parado!")
+            print("Backend Flask parado")
     
     def run_detection_demo(self, max_frames=50):
         """Executa demonstração de detecção"""
-        print("🔍 Iniciando demonstração de detecção...")
+        print("Iniciando demonstração de detecção...")
         
         video_path = "assets/sample_video.mp4"
         if not os.path.exists(video_path):
-            print(f"❌ Vídeo não encontrado: {video_path}")
+            print(f"Vídeo não encontrado: {video_path}")
             return False
         
         import cv2
         cap = cv2.VideoCapture(video_path)
         if not cap.isOpened():
-            print("❌ Erro ao abrir vídeo")
+            print("Erro ao abrir vídeo")
             return False
         
         frame_count = 0
         start_time = time.time()
         
-        print("📹 Processando vídeo (pressione 'q' para sair)...")
+        print("Processando vídeo (pressione 'q' para sair)...")
         
         while frame_count < max_frames:
             ret, frame = cap.read()
@@ -183,7 +183,7 @@ class VisionMotoDemo:
         """Mostra relatório final"""
         stats = self.db.get_statistics()
         
-        print("\n📊 RELATÓRIO FINAL:")
+        print("\nRELATÓRIO FINAL:")
         print("=" * 40)
         print(f"Frames processados: {frame_count}")
         print(f"Tempo total: {elapsed_time:.2f}s")
@@ -191,7 +191,7 @@ class VisionMotoDemo:
         print(f"Total de detecções: {stats['total_detections']}")
         print(f"Classes detectadas: {stats['unique_classes']}")
         
-        print("\n📋 ÚLTIMAS DETECÇÕES:")
+        print("\nÚLTIMAS DETECÇÕES:")
         print("=" * 30)
         
         recent = self.db.get_recent_detections(5)
@@ -201,44 +201,44 @@ class VisionMotoDemo:
     
     def run_complete_demo(self):
         """Executa demonstração completa do sistema"""
-        print("🎯 VisionMoto - Demonstração Completa")
+        print("VisionMoto - Demonstração Completa")
         print("=" * 50)
         print("Sistema Integrado: Visão Computacional + IoT")
         print("=" * 50)
         
         try:
             # Inicializa banco de dados
-            print("🗄️ Inicializando banco de dados...")
+            print("Inicializando banco de dados...")
             self.db.initialize()
-            print("✅ Banco de dados inicializado")
+            print("Banco de dados inicializado")
             
             # Inicia backend
             if not self.start_backend():
-                print("⚠️ Continuando sem backend...")
+                print("Continuando sem backend...")
             
             # Inicia simulação IoT
-            print("📡 Iniciando simulação IoT...")
+            print("Iniciando simulação IoT...")
             self.iot_simulator.start_simulation()
             
             # Executa detecção
-            print("🔍 Iniciando detecção de visão computacional...")
+            print("Iniciando detecção de visão computacional...")
             self.run_detection_demo()
             
-            print("\n✅ Demonstração completa finalizada!")
-            print("🌐 Dashboard disponível em: http://localhost:5000")
-            print("📊 Sistema integrado funcionando!")
-            print("\n🎉 VisionMoto - Sistema Completo Funcionando!")
+            print("\nDemonstração completa finalizada")
+            print("Dashboard disponível em: http://localhost:5000")
+            print("Sistema integrado funcionando")
+            print("\nVisionMoto - Sistema Completo Funcionando")
             
         except KeyboardInterrupt:
-            print("\n⏹️ Sistema interrompido pelo usuário")
+            print("\nSistema interrompido pelo usuário")
         except Exception as e:
-            print(f"❌ Erro: {e}")
+            print(f"Erro: {e}")
         finally:
             # Limpeza
-            print("\n🧹 Limpando recursos...")
+            print("\nLimpando recursos...")
             self.iot_simulator.stop_simulation()
             self.stop_backend()
-            print("✅ Limpeza concluída!")
+            print("Limpeza concluída")
 
 def main():
     """Função principal"""

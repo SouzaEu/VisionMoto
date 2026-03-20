@@ -1,4 +1,4 @@
-# 🤖 VisionMoto - Sistema IoT Inteligente para Gestão de Motos
+# VisionMoto - Sistema para Gestão de Motos
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.8+-green.svg)](https://opencv.org/)
@@ -6,27 +6,26 @@
 [![Flask](https://img.shields.io/badge/Flask-2.3+-orange.svg)](https://flask.palletsprojects.com/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://docker.com/)
 
-> **Sistema completo de visão computacional e IoT para detecção, rastreamento e gestão inteligente de motocicletas em pátios da Mottu - Challenge FIAP 2025**
+> Sistema de visão computacional e IoT para detecção, rastreamento e gestão de motocicletas em pátios. Projeto desenvolvido no contexto do Challenge FIAP 2025.
 
 ---
 
-## 🎯 **Visão Geral da Solução**
+## Visão Geral
 
-O **VisionMoto** é uma plataforma IoT avançada que combina:
-- 🎥 **Visão Computacional** com YOLO v8 para detecção de motos
-- 📡 **APIs REST** para integração multidisciplinar
-- 🏍️ **Dashboard Interativo** para monitoramento em tempo real
-- 🔗 **Integração Completa** com Mobile App e Java API
-- 📊 **Analytics** e relatórios automatizados
+O VisionMoto combina:
+- Visão computacional (YOLO v8) para detecção de motos
+- APIs REST para integrações
+- Dashboard web para monitoramento
+- Relatórios e estatísticas
 
 ### **Problema Resolvido**
 Automatização completa do controle de pátios da Mottu através de visão computacional, eliminando processos manuais e aumentando precisão operacional.
 
 ---
 
-## 🚀 **Demonstração Online**
+## Execução e Acesso
 
-### **🌐 Sistema Funcionando:**
+### Endereços
 - **API Principal:** `http://localhost:5001`
 - **Dashboard IoT:** `http://localhost:5001/dashboard`
 - **Health Check:** `http://localhost:5001/health`
@@ -34,7 +33,7 @@ Automatização completa do controle de pátios da Mottu através de visão comp
 
 ---
 
-## 🛠️ **Tecnologias e Arquitetura**
+## Tecnologias
 
 ### **Backend & APIs**
 - **Python 3.9+** - Linguagem principal
@@ -56,46 +55,38 @@ Automatização completa do controle de pátios da Mottu através de visão comp
 
 ---
 
-## 📋 **Funcionalidades Implementadas**
+## Funcionalidades
 
-### **1. 🎥 Sistema de Visão Computacional**
-- ✅ Detecção de motos com YOLO v8
-- ✅ Rastreamento em tempo real
-- ✅ Análise de vídeo e imagens
-- ✅ Contagem automática de veículos
-- ✅ Detecção de movimento e ocupação
+### Sistema de Visão Computacional
+- Detecção de motos com YOLO v8
+- Rastreamento
+- Análise de vídeo e imagens
+- Contagem automática
+- Detecção de movimento e ocupação
 
-### **2. 📡 APIs REST Multidisciplinares**
-- ✅ **Mobile API** (`/api/mobile/*`) - Integração com React Native
-- ✅ **Java API** (`/api/java/*`) - Sincronização com Spring Boot
-- ✅ **Database API** (`/api/database/*`) - Operações de dados
-- ✅ **IoT API** (`/api/iot/*`) - Sensores e dispositivos
-- ✅ **Health Checks** - Monitoramento de saúde
+### APIs REST
+- Mobile API (`/api/mobile/*`)
+- Java API (`/api/java/*`)
+- .NET API (`/api/dotnet/*`)
+- Database API (`/api/database/*`)
+- IoT API (`/api/iot/*`)
+- Health checks
 
-### **3. 📊 Dashboard Interativo**
-- ✅ **Mapa Visual do Pátio** - Grid interativo com localização das motos
-- ✅ Visualização em tempo real
-- ✅ Estatísticas de ocupação
-- ✅ Histórico de movimentações
-- ✅ Alertas e notificações
-- ✅ Interface web responsiva
-- ✅ Clique em motos para ver detalhes completos
+### Dashboard
+- Mapa visual do pátio
+- Visualização e estatísticas
+- Alertas e histórico
 
-### **4. 🔗 Integração Multidisciplinar**
-- ✅ **Mobile App** - Dados para React Native
-- ✅ **Java API** - Sincronização bidirecional
-- ✅ **Database** - Persistência de dados
-- ✅ **DevOps** - Deploy automatizado
+### Integração
+- Integrações via endpoints dedicados por cliente
 
-### **5. 🗄️ Banco de Dados**
-- ✅ SQLite integrado para desenvolvimento
-- ✅ Modelos de dados otimizados
-- ✅ Migrações automáticas
-- ✅ Backup e restore
+### Banco de Dados
+- SQLite para desenvolvimento
+- Backup
 
 ---
 
-## 🏗️ **Arquitetura e Padrões**
+## Arquitetura
 
 ### **Padrões Aplicados:**
 - **MVC** - Separação de responsabilidades
@@ -104,22 +95,17 @@ Automatização completa do controle de pátios da Mottu através de visão comp
 - **Factory Pattern** - Criação de objetos
 - **Singleton** - Gerenciamento de recursos
 
-### **Princípios SOLID:**
-- ✅ **Single Responsibility** - Módulos especializados
-- ✅ **Open/Closed** - Extensível para novos sensores
-- ✅ **Liskov Substitution** - Interfaces padronizadas
-- ✅ **Interface Segregation** - APIs específicas
-- ✅ **Dependency Inversion** - Inversão de dependências
+### Princípios
+- Separação de responsabilidades
+- APIs específicas por cliente
 
 ---
 
-## 🚀 **Como Executar**
+## Como Executar
 
-### **Pré-requisitos:**
-- 🐍 **Python 3.9+** (obrigatório)
-- 📦 **pip** para gerenciamento de pacotes
-- 🎥 **Webcam** ou arquivo de vídeo (opcional)
-- 🌐 **Navegador web** moderno
+### Pré-requisitos
+- Python 3.9+
+- pip
 
 ### **Instalação Rápida:**
 
@@ -135,139 +121,121 @@ pip install -r requirements.txt
 python start_integration.py
 ```
 
-### **🎮 Modos de Execução:**
+### Modos de Execução
 
-#### **Sistema Completo (Recomendado)**
+#### Sistema Completo
 ```bash
 python start_integration.py
-# ✅ API REST em http://localhost:5001
-# ✅ Dashboard em http://localhost:5001/dashboard
-# ✅ Todas as integrações ativas
+# API REST em http://localhost:5001
+# Dashboard em http://localhost:5001/dashboard
+# Integrações ativas
 ```
 
-#### **Demonstração Visual**
+#### Demonstração Visual
 ```bash
 python visionmoto.py demo
-# ✅ Interface gráfica com detecção
-# ✅ Processamento de vídeo em tempo real
-# ✅ Estatísticas visuais
+# Interface com detecção
+# Processamento de vídeo
 ```
 
-#### **API Backend Apenas**
+#### API Backend
 ```bash
 python visionmoto.py backend
-# ✅ Apenas APIs REST
-# ✅ Sem interface gráfica
-# ✅ Ideal para produção
+# Apenas APIs REST
 ```
 
-#### **Testes Automatizados**
+#### Testes
 ```bash
 pytest tests/ -v
-# ✅ Testes de unidade
-# ✅ Testes de integração
-# ✅ Cobertura de código
+# Testes
 ```
 
 ---
 
-## 🔌 **Endpoints da API**
+## Endpoints
 
-### **📱 Mobile Integration**
+### Mobile
 - `GET /api/mobile/motos` - Lista motos detectadas
 - `GET /api/mobile/dashboard` - Estatísticas para mobile
 - `POST /api/mobile/sync` - Sincronização de dados
 
-### **☕ Java Integration**
+### Java
 - `GET /api/java/health` - Health check Java
 - `POST /api/java/motos` - Recebe dados do Java
 - `GET /api/java/dashboard` - Dashboard para Java
 
-### **🗄️ Database Operations**
+### Database
 - `GET /api/database/motos` - Consulta banco
 - `POST /api/database/backup` - Backup automático
 - `GET /api/database/stats` - Estatísticas do banco
 
-### **🤖 IoT Sensors**
+### IoT
 - `GET /api/iot/sensors` - Status dos sensores
 - `POST /api/iot/data` - Dados dos sensores
 - `GET /api/iot/alerts` - Alertas ativos
 
-### **📊 Monitoring**
+### Monitoring
 - `GET /health` - Health check geral
 - `GET /dashboard` - Interface web
 - `GET /metrics` - Métricas do sistema
 
 ---
 
-## 📁 **Estrutura do Projeto**
+## Estrutura do Projeto
 
 ```text
 VisionMoto/
-├── 📁 src/                          # Código fonte principal
-│   ├── 📁 backend/                  # APIs e serviços
-│   │   ├── integration_api.py       # API principal de integração
-│   │   ├── mobile_api.py           # Endpoints para mobile
-│   │   ├── java_api.py             # Integração com Java
-│   │   └── database_api.py         # Operações de banco
-│   ├── 📁 vision/                   # Visão computacional
-│   │   ├── detector.py             # Detector YOLO
-│   │   ├── tracker.py              # Rastreamento
-│   │   └── analyzer.py             # Análise de dados
-│   ├── 📁 models/                   # Modelos de dados
-│   │   ├── moto.py                 # Modelo de moto
-│   │   └── sensor.py               # Modelo de sensor
-│   └── 📁 utils/                    # Utilitários
-│       ├── config.py               # Configurações
-│       └── logger.py               # Sistema de logs
-├── 📁 demos/                        # Demonstrações
+├── src/                          # Código fonte
+│   ├── backend/                  # API
+│   ├── routes/                   # Blueprints/rotas
+│   ├── services/                 # Serviços
+│   ├── models/                   # Modelos
+│   └── iot/                      # IoT
+├── demos/                        # Demonstrações
 │   └── demo_final.py               # Demo completa
-├── 📁 tests/                        # Testes automatizados
-│   ├── test_api.py                 # Testes de API
-│   ├── test_vision.py              # Testes de visão
-│   └── test_integration.py         # Testes de integração
-├── 📁 integration/                  # Documentação de integração
+├── tests/                        # Testes
+├── integration/                  # Documentação de integração
 │   ├── mobile/                     # Docs Mobile
 │   ├── java/                       # Docs Java
 │   └── dotnet/                     # Docs .NET
-├── 📁 assets/                       # Recursos
+├── assets/                       # Recursos
 │   └── sample_video.mp4            # Vídeo de exemplo
-├── 📁 .github/workflows/            # CI/CD
+├── .github/workflows/            # CI/CD
 │   └── ci.yml                      # Pipeline automatizado
-├── 🐳 Dockerfile                    # Container Docker
-├── 🐳 docker-compose.yml            # Orquestração
-├── 📋 requirements.txt              # Dependências Python
-├── ⚙️ pytest.ini                   # Configuração de testes
-├── 🚀 start_integration.py          # Script de inicialização
-├── 🎯 visionmoto.py                 # Script principal
-└── 📖 README.md                     # Esta documentação
+├── Dockerfile                    # Container Docker
+├── docker-compose.yml            # Orquestração
+├── requirements.txt              # Dependências Python
+├── pytest.ini                    # Configuração de testes
+├── start_integration.py          # Script de inicialização
+├── visionmoto.py                 # Script principal
+└── README.md                     # Documentação
 ```
 
 ---
 
-## 🎓 **Integração Multidisciplinar**
+## Integração Multidisciplinar
 
 ### **Disciplinas Aplicadas:**
 
-#### **📱 Mobile Application Development**
+#### Mobile
 - APIs REST otimizadas para React Native
 - Endpoints de sincronização em tempo real
 - Dados formatados para consumo mobile
 - Notificações push integradas
 
-#### **☕ Java Advanced**
+#### Java
 - Integração bidirecional com Spring Boot
 - Sincronização de dados de motos
 - Health checks e monitoramento
 - APIs REST padronizadas
 
-#### **🗄️ Database Application & Data Science**
+#### Database
 - Modelos de dados otimizados
 - Análise de padrões de uso
 - Relatórios automatizados
 - Backup e recovery
 
-#### **🚀 DevOps Tools & Cloud Computing**
+#### DevOps
 - Pipeline CI/CD automatizado
 - Containerização com Docker
 - Deploy em nuvem
@@ -275,29 +243,23 @@ VisionMoto/
 
 ---
 
-## 📈 **Evidências e Documentação**
+## Evidências e Documentação
 
-### **🎥 Demonstrações Visuais:**
-- ✅ **Dashboard Interativo** - Interface web completa
-- ✅ **Detecção em Tempo Real** - YOLO funcionando
-- ✅ **APIs Funcionais** - Endpoints testados
-- ✅ **Integração Mobile** - Dados sincronizados
+### Demonstrações
+- Dashboard web
+- Detecção em tempo real
+- Endpoints de integração
 
-### **📊 Métricas de Performance:**
-- ✅ **Detecção:** 95%+ de precisão
-- ✅ **Latência:** < 100ms por frame
-- ✅ **Throughput:** 30+ FPS processamento
-- ✅ **Uptime:** 99.9% disponibilidade
+### Métricas
+- Métricas de performance podem ser consultadas na documentação de testes.
 
-### **🔍 Qualidade de Código:**
-- ✅ **Cobertura de Testes:** 85%+
-- ✅ **Lint Score:** 9.5/10
-- ✅ **Documentação:** 100% APIs
-- ✅ **Type Hints:** Python tipado
+### Qualidade
+- Testes com `pytest`
+- Formatação e lint via ferramentas do projeto
 
 ---
 
-## 👥 **Equipe de Desenvolvimento**
+## Equipe
 
 | Nome | RM | Função | GitHub |
 |------|----|---------|---------| 
@@ -307,23 +269,23 @@ VisionMoto/
 
 ---
 
-## 🏆 **Diferenciais da Solução**
+## Notas
 
 ### **Inovação Tecnológica:**
-- 🎯 **YOLO v8** - Modelo mais avançado de detecção
-- ⚡ **Tempo Real** - Processamento < 100ms
-- 🔗 **Multi-API** - Integração com 4 disciplinas
-- 📊 **Analytics** - Insights automatizados
+- **YOLO v8** - Modelo de detecção
+- **Tempo Real** - Processamento < 100ms
+- **Multi-API** - Integração com 4 disciplinas
+- **Analytics** - Insights automatizados
 
 ### **Alinhamento com Mottu:**
-- 🎯 **Problema Real** - Gestão automatizada de pátios
-- 💡 **Solução Prática** - Redução de 90% do trabalho manual
-- 📊 **ROI Mensurável** - Economia comprovada
-- 🔄 **Escalabilidade** - Suporte a múltiplos pátios
+- **Problema Real** - Gestão automatizada de pátios
+- **Solução Prática** - Redução de 90% do trabalho manual
+- **ROI Mensurável** - Economia comprovada
+- **Escalabilidade** - Suporte a múltiplos pátios
 
 ---
 
-## 🚨 **Troubleshooting**
+## Troubleshooting
 
 ### **Problemas Comuns:**
 
@@ -356,27 +318,19 @@ python visionmoto.py demo --source assets/sample_video.mp4
 
 ---
 
-## 📞 **Contato e Suporte**
+## Contato
 
-- 📧 **Email:** equipe.visionmoto@fiap.com.br
-- 💬 **Discord:** VisionMoto Team
-- 📱 **WhatsApp:** Grupo da equipe
-- 🐛 **Issues:** [GitHub Issues](https://github.com/VisionMoto/VisionMoto/issues)
+- **Email:** equipe.visionmoto@fiap.com.br
+- **Discord:** VisionMoto Team
+- **WhatsApp:** Grupo da equipe
+- **Issues:** [GitHub Issues](https://github.com/VisionMoto/VisionMoto/issues)
 
 ---
 
-## 📄 **Licença**
+## Licença
 
 Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 ---
 
-<div align="center">
-
-**🤖 VisionMoto - Revolucionando a gestão de pátios com IA**
-
-*Desenvolvido com ❤️ pela equipe FIAP 2025*
-
-**4º Sprint - Disruptive Architectures: IoT, IoB & Generative AI**
-
-</div>
+ 
